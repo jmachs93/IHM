@@ -173,14 +173,14 @@ class Principal extends CI_Controller{
 			$this->load->view('footer_common',$this->Datos);
 		}
 
-		public function categorias($tipo = null,$temporada = null,$precio = null){
+		public function categorias($tipo = null,$temporada = null,$preciomin = null,$preciomax = null){
 			if($tipo == null){
 				redirect('principal/error');
 			}
 			else{
 				if($tipo == "Gargantilla"){
 					$this->load->model('gargantilla');
-				    $this->Datos['productos'] = $this->gargantilla->all($tipo,$temporada,$precio);				   
+				    $this->Datos['productos'] = $this->gargantilla->all($tipo,$temporada,$preciomin,$preciomax);				   
 					$this->load->view('header',$this->Datos);
 					$this->load->view('categorias',$this->Datos);
 					$this->load->view('footer',$this->Datos);
@@ -188,7 +188,7 @@ class Principal extends CI_Controller{
 				}
 				if($tipo == "Pulsera"){
 					$this->load->model('pulsera');
-				    $this->Datos['productos'] = $this->pulsera->all($tipo,$temporada,$precio);				   
+				    $this->Datos['productos'] = $this->pulsera->all($tipo,$temporada,$preciomin,$preciomax);				   
 					$this->load->view('header',$this->Datos);
 					$this->load->view('categorias',$this->Datos);
 					$this->load->view('footer',$this->Datos);
@@ -196,7 +196,7 @@ class Principal extends CI_Controller{
 				}
 				if($tipo == "Zarcillo"){
 					$this->load->model('zarcillo');
-				    $this->Datos['productos'] = $this->zarcillo->all($tipo,$temporada,$precio);				   
+				    $this->Datos['productos'] = $this->zarcillo->all($tipo,$temporada,$preciomin,$preciomax);				   
 					$this->load->view('header',$this->Datos);
 					$this->load->view('categorias',$this->Datos);
 					$this->load->view('footer',$this->Datos);

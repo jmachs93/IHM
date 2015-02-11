@@ -71,22 +71,25 @@
                               <span><strong>Modelo:</strong> <?= $producto->tipo?></span>
                               <span ><strong>Precio:</strong><strong id="precio-carrito"> <?= $producto->precio?></strong></span>
                               <span>Cantidad: </span>
-
+                                 <form method="POST" action="<?=site_url('principal/carrito')?>">
                                     <!-- SUMADOR -->
                                 <div class="input-group number-spinner">
                                     <span class="input-group-btn data-dwn">
                                         <button class="btn btn-default btn-info" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
                                     </span>
-                                    <input type="text" class="form-control text-center" value="1" min="1" max="40" id="sumador-unidades">
+                                    <input type="text" class="form-control text-center" value="1" min="1" max="40" id="sumador-unidades" name="cantidad">
                                     <span class="input-group-btn data-up">
                                         <button class="btn btn-default btn-info" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
                                     </span>
                                 </div>  
                                 <!-- FIN SUMADOR -->                        
                             </div> 
-
+                           
                             <div class="botones-producto-detalles">
-                                    <button class="btn btn-primary" id="agregar-al-carrito"><img src="<?=$recursos?>/img/agregar-al-carrito-icon.png" id="icon-agregar-carrito">Agregar al carrito</button>
+                                   
+                                        
+                                        <button type="submit" name="producto" value="<?= $producto->codigo ?>" class="btn btn-primary" id="agregar-al-carrito"><img src="<?=$recursos?>/img/agregar-al-carrito-icon.png" id="icon-agregar-carrito" >Agregar al carrito</button>
+                                    </form>
                                     <button class="btn btn-primary" data-toggle="modal" data-target=".modal-comprar" id="boton-comprar">Comprar</button>
                                     
                                     <!--

@@ -58,7 +58,7 @@
                         <div class="etiqueta-nuevo">
                             <span>NUEVO</span>
                         </div>
-                        <a href="#"><figure><img src="<?=$recursos.$row->imagen?>"></figure></a>
+                        <a href="<?= site_url('principal/producto/'.$row->codigo)?>"><figure><img src="<?=$recursos.$row->imagen?>"></figure></a>
                         <span class="temporada">Temporada <strong><?= $row->temporada?></strong></span>
                         <div class="prenda-stock">
                             <span class="prenda"><?= $row->tipo ?></span>

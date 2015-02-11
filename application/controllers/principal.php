@@ -133,12 +133,15 @@ class Principal extends CI_Controller{
 	}
 
 	public function carrito(){
+		$this->load->model('carrito');
 		if(isset($this->session->userdata['email'])){
 			$this->load->view('header2',$this->Datos);
 			if($_POST){
-				$this->load->model('carrito');
+				
 				$this->carrito->insertar($_POST);
 			}
+			$this->Datos['carritos'] = $this->carrito->mostrar();
+			$this->Datos['suma'] = $this->carrito->suma();
 			$this->load->view('carrito',$this->Datos);
 			$this->load->view('footer',$this->Datos);
 			$this->load->view('footer_common',$this->Datos); 

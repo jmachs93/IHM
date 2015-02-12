@@ -1,68 +1,48 @@
 
-<section class="SlideShow_principal">
-        <article id="miSlide" class="carousel slide">
-                <ol class="carousel-indicators">
-                        <li data-target="#miSlide" data-slide-to ="0" class="active"></li>
-                        <li data-target="#miSlide" data-slide-to ="1"></li>
-                        <li data-target="#miSlide" data-slide-to ="2"></li>
-                        <li data-target="#miSlide" data-slide-to ="3"></li>
-                </ol>
 
-                <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="<?= $recursos ?>/img/slide1.jpg" class="adaptar">
-                        </div>
-                        <div class="item">
-                            <img   src="<?= $recursos ?>/img/slide2.jpg" class="adaptar" >
-                        </div>
-                        <div class="item">
-                            <img src="<?= $recursos ?>/img/slide3.jpg" class="adaptar">
-                        </div>
-                        <div class="item">
-                            <img src="<?= $recursos ?>/img/slide4.jpg" class="adaptar">
-                        </div>
-                </div>
-
-                <!--
-                    PASADORES
-                -->
-                <a href="#miSlide" class="left carousel-control" data-slide="prev"><span class="glyphicon glyphicon-chevron-left "></span></a>
-                <a href="#miSlide" class="right carousel-control" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </article>  
-    </section>
-
-    <section class="mas-visitados text-center">
-        <!--
-            TITULO DE CUERPO ARTICULOS
-        -->
-        <div class="container">
+        <!-- Franja color -->
+    
+    <section class="franja-no-encontrado"> </section>
+    
+    <!--
+        MENSAJE
+    -->
+    <section class="section-mensaje-noencontrado">
+        <div class="container">        
             <div class="row">
-                <div class="col-md-12 col-lg-12 titulo-index">
-                    <h1>Ser autentica es nuestro mayor acierto</h1>
-                </div>
-            </div>
-
-            <!--
-                PASADORES DE SECCIONES
-            -->
-            <div class="row">
-                <div class="col-sm-12 col-md-12">
-                    <ul class="categorias-index">
-                        <li id="primero-categoria"><a href="<?= site_url('principal/index/todos')?>">TODOS</a></li>
-                        <li id="m-j"><a href="<?=site_url('principal/index/mvendidos')?>">MÁS VENDIDO</a></li>
-                        <li id="ultimo-categoria"><a href="<?=site_url('principal/index/mnuevos')?>">MÁS NUEVO</a></li>
-                    </ul>
-                    </ul>
-
-                    <div class="controles-index">
-                        <a href="#carousel-productos-index" id="control-prev" data-slide="prev"><span class="glyphicon glyphicon-chevron-left control-left"></span></a>
-                        <a href="#carousel-productos-index" data-slide="next"><span class="glyphicon glyphicon-chevron-right control-right"></span></a>
-                    </div>
+                <div class="col-sm-12 col-md-12 col-lg-12 contenedor-mensaje">
+                    <h3 id="lo-sentimos">Felicidades, <br>su solicitud de compra ha sido procesada satisfactoriamente</h3>
                 </div>
             </div>
         </div>
 
-        <?php
+    </section>
+
+    <!--
+        RECOMENDADOS
+    -->
+    <section class="productos-recomendados hidden-xs">
+        <div class="container">
+            <div class="row">
+                <!--
+                    TITULO RECOMENDADOS
+                -->
+                <div class="col-md-12 col-lg-12">
+                    <div class="recomendados-titulo">
+                        <span>Recomendados</span>
+                    </div>
+                    
+                    <div class="controles-recomendados">
+                        <a href="#carousel-recomendados-producto" data-slide="prev"><span class="glyphicon glyphicon-chevron-left control-left"></span></a>
+                        <a href="#carousel-recomendados-producto" data-slide="next"><span class="glyphicon glyphicon-chevron-right control-right"></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+                GALERIA PRODUCTOS
+            -->
+           <?php
 
          $total = $productos->num_rows(); 
 
@@ -150,29 +130,7 @@
         </div>
                     
     </section>
-    
-    <section class="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="letritas">
-                        <h3>Porque lucir bellas y originales es una ciencia</h3>
-                    </div>
-                    <div class="formulario-newsletter">
-                        <form action="//accesoriosranyelagomez.us10.list-manage.com/subscribe/post?u=6061cbb67fbad5bd115e37b66&amp;id=24ec7451a8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                            <input type="email" name="email" placeholder="@Email" required="required" id="email3">
-                            <input type="submit" value="SUSCRIBETE" id="boton-suscribir" onClick="boton_suscribir()">
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="imagen-ciencia">
-                        <img src="<?= $recursos ?>/img/img-newsletter.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- IR AL CIELO -->
-    <span class="ir-arriba glyphicon glyphicon-chevron-up"></span>
+    <span class="ir-arriba glyphicon glyphicon-chevron-up"></span>  
+  </body>

@@ -197,7 +197,7 @@ class Principal extends CI_Controller{
 
 		public function categorias($tipo = null,$temporada = null,$preciomin = null,$preciomax = null){
 			$this->load->model('carrito');
-			$this->Datos['contar'] = $this->carrito->contar();
+			
 			if($tipo == null){
 				redirect('principal/error');
 			}
@@ -205,8 +205,10 @@ class Principal extends CI_Controller{
 				if($tipo == "Gargantilla"){
 					$this->load->model('gargantilla');
 				    $this->Datos['productos'] = $this->gargantilla->all($tipo,$temporada,$preciomin,$preciomax);
-				    if(isset($this->session->userdata['email']))
+				    if(isset($this->session->userdata['email'])){
 						$this->load->view('header2',$this->Datos); 
+						$this->Datos['contar'] = $this->carrito->contar();
+				    }
 					else
 						$this->load->view('header',$this->Datos); 				   
 					

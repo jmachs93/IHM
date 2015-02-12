@@ -192,7 +192,7 @@
                             </a>
                         </figure>
                         <div class="borrar-articulo-carrito">
-                            <a href="javascript:void(0)"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a ><span class="glyphicon glyphicon-remove"></span></a>
                         </div>
                         <div class="datos-articulo-carrito">
                           <span><strong>Temporada:</strong> <?= $row->temporada?></span>
@@ -215,9 +215,17 @@
                         </div> 
                     </div>  
                   </div>
+                  <form>
+                      <input type="hidden" name="temporada" id="temporada" value="<?= $row->temporada?>">
+                      <input type="hidden" name="tipo" id="tipo" value="<?= $row->tipo?>">
+                      <input type="hidden" name="precio" id="precio" value="<?= $row->precio?>">
+                      <input type="hidden" name="cantidad" id="cantidad" value="<?= $row->cantidad?>">
+                      <input type="hidden" name="codigo" id="codigo" value="<?= $row->idproducto?>">
+                      <input type="hidden" name="email" id="email" value="<?= $this->session->userdata['email']?>">
+                  </form>
                   <?php endfor;?>                
                 
-
+                 
                
 
              

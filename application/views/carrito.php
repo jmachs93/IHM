@@ -160,9 +160,7 @@
             <div class="row">
                <?php
                 $total = $carritos->num_rows(); 
-                if($total == 0){
-                  redirect('principal/no-encontrado');
-                }
+                
                 $i = 0;
                 $estado="";
                 for($i =0; $i < $total; $i++):

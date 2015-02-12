@@ -19,7 +19,7 @@ class Principal extends CI_Controller{
        		 
        				
 	}
-	public function index()
+	public function index($opcion = null)
 	{
 		$this->load->model('carrito');
 	    $user = $this->facebook->getUser();
@@ -45,7 +45,7 @@ class Principal extends CI_Controller{
 		if((isset($this->session->userdata['email'])))
 		{	
 			$this->load->model('producto');
-			$this->Datos['productos'] = $this->producto->all();
+			$this->Datos['productos'] = $this->producto->all($opcion);
 			$this->Datos['contar'] = $this->carrito->contar();
 			$this->load->view('header2',$this->Datos); 
 			$this->load->view('index',$this->Datos); 
@@ -55,7 +55,7 @@ class Principal extends CI_Controller{
 		else{
 			if(!isset($_POST['email'])){
 				$this->load->model('producto');
-				$this->Datos['productos'] = $this->producto->all();
+				$this->Datos['productos'] = $this->producto->all($opcion);
 				$this->load->view('header',$this->Datos); 
 				$this->load->view('index',$this->Datos); 
 				$this->load->view('footer',$this->Datos); 
@@ -143,7 +143,16 @@ class Principal extends CI_Controller{
 
 			$this->Datos['carritos'] = $this->carrito->mostrar();
 			$this->Datos['suma'] = $this->carrito->suma();
-			$this->load->view('carrito',$this->Datos);
+			if($this->carrito->contar() == 0){	
+				$this->load->model('producto');	
+				$this->Datos['productos'] = $this->producto->all();	
+                $this->load->view('no-encontrado',$this->Datos);
+            }
+            else{
+               	$this->load->view('carrito',$this->Datos);
+            }    
+			
+			
 			$this->load->view('footer',$this->Datos);
 			$this->load->view('footer_common',$this->Datos); 
 		}
@@ -181,6 +190,16 @@ class Principal extends CI_Controller{
 			$this->load->view('error_404',$this->Datos);
 			
 			$this->load->view('footer_common',$this->Datos);
+		}
+
+
+
+			public function noencontrado(){
+			$this->load->view('header2',$this->Datos); 
+			$this->load->view('no-encontrado',$this->Datos);
+			$this->load->view('carrito',$this->Datos);
+			$this->load->view('footer_common',$this->Datos);
+
 		}
 
 		public function categorias($tipo = null,$temporada = null,$preciomin = null,$preciomax = null){

@@ -100,27 +100,21 @@ class Principal extends CI_Controller{
 		}
 	}
 
+	public function pagar(){
+		
 
-
-	public function pago(){
-		$this->load->model('carrito');
-		if(isset($this->session->userdata['email'])){
+		if(isset($this->session->userdata['email']))
 			$this->load->view('header2',$this->Datos); 
-			$this->Datos['contar'] = $this->carrito->contar();
-		}
-		else{
+		else
 			$this->load->view('header',$this->Datos); 
-		}
 
 		$this->load->view('carrito',$this->Datos);
 		$this->load->view('footer',$this->Datos);
 		$this->load->view('footer_common',$this->Datos);
 		if($_POST){
-			$this->load->model('pago');
-			$this->pago->datos_pago();
+			$this->load->model('carrito');
+			$this->persona->datos_pago();
 		}
-
-		
 	}
 
 	public function contacto(){
@@ -206,8 +200,9 @@ class Principal extends CI_Controller{
 					$this->load->model('gargantilla');
 				    $this->Datos['productos'] = $this->gargantilla->all($tipo,$temporada,$preciomin,$preciomax);
 				    if(isset($this->session->userdata['email'])){
+				    	$this->Datos['contar'] = $this->carrito->contar();
 						$this->load->view('header2',$this->Datos); 
-						$this->Datos['contar'] = $this->carrito->contar();
+						
 				    }
 					else
 						$this->load->view('header',$this->Datos); 				   
@@ -219,8 +214,10 @@ class Principal extends CI_Controller{
 				if($tipo == "Pulsera"){
 					$this->load->model('pulsera');
 				    $this->Datos['productos'] = $this->pulsera->all($tipo,$temporada,$preciomin,$preciomax);				   
-					 if(isset($this->session->userdata['email']))
+					 if(isset($this->session->userdata['email'])){
+					 	$this->Datos['contar'] = $this->carrito->contar();
 						$this->load->view('header2',$this->Datos); 
+					}
 					else
 						$this->load->view('header',$this->Datos);
 					$this->load->view('categorias',$this->Datos);
@@ -230,8 +227,10 @@ class Principal extends CI_Controller{
 				if($tipo == "Zarcillo"){
 					$this->load->model('zarcillo');
 				    $this->Datos['productos'] = $this->zarcillo->all($tipo,$temporada,$preciomin,$preciomax);				   
-					if(isset($this->session->userdata['email']))
+					if(isset($this->session->userdata['email'])){
+						$this->Datos['contar'] = $this->carrito->contar();
 						$this->load->view('header2',$this->Datos); 
+					}
 					else
 						$this->load->view('header',$this->Datos);
 					$this->load->view('categorias',$this->Datos);

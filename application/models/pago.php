@@ -24,6 +24,7 @@
 			$this->direc_env   = $_POST['mensaje'];
 		
 			$this->db->insert('pago',$this);
+			redirect(site_url('principal/carrito'),'refresh');
 		}
 
 

@@ -118,7 +118,7 @@
                               </div>  
 
                                 <div class="formulario-login">
-                                        <form action="<?= site_url('principal/index')?>" method="POST" id="formulario-login"> 
+                                        <form action="<?= site_url('principal/index')?>" method="POST"> 
                                             <div class="titulo-ingresar-tradicional">
 
                                               <span><strong>Registro Tradicional</strong></span>
